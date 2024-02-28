@@ -1,0 +1,12 @@
+version: '3.11'
+networks:
+  default:
+    name: local_shared_network
+    external: true
+services:
+  whisper:
+    build:
+      context: .
+      dockerfile: whisper/Dockerfile
+    ports:
+      - 8001:8001
