@@ -1,7 +1,7 @@
 from fastapi import APIRouter, File, UploadFile, HTTPException
 from ..services.whisper_services import transcribe_audio
 from typing import Dict, Optional
-from ..dto.request_model import WhisperRequestBody
+# from ..dto.request_model import WhisperRequestBody
 import json
 import os
 

@@ -1,7 +1,7 @@
 import os
 import json
 from fastapi import HTTPException
-from ..dto.request_model import WhisperRequestBody
+# from ..dto.request_model import WhisperRequestBody
 from typing import Dict, Optional
 from whisper.config.config import get_settings
 from transformers import pipeline
