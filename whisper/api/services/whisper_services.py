@@ -9,7 +9,7 @@ import torch
 from transformers.utils import is_flash_attn_2_available
     
 
-def transcribe_audio(filepath: str, options: Optional[Dict]):
+async def transcribe_audio(filepath: str, options: Optional[Dict]):
     print(options)
     try:
         #load model
