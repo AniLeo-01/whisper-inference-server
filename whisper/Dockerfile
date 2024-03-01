@@ -1,6 +1,7 @@
 FROM python:3.11-slim-bullseye
 
-RUN apt-get clean && apt-get update && apt-get install -y \
+RUN apt-get clean && apt-get -y update && apt-get -y upgrade &&\
+    apt-get install -y --no-install-recommends ffmpeg\
     git \
     build-essential && \
     rm -rf /var/lib/apt/lists/* && apt-get clean
@@ -16,7 +17,6 @@ RUN pip install --upgrade pip
 # Increase timeout to wait for the new installation
 RUN pip install --no-cache-dir -r requirements.txt --timeout 200
 
-RUN pip3 install insanely-fast-whisper --ignore-requires-python
 # Copy the rest of the application
 COPY . .
 

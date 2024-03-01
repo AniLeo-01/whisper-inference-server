@@ -13,14 +13,14 @@ async def root():
 
 
 @whisper_router.post("/transcribe")
-async def transcribe(options: Optional[str], audio_file: UploadFile = File(...),):
+def transcribe(options: Optional[str], audio_file: UploadFile = File(...),):
     try:
         options = json.loads(options)
-        audio_content = await audio_file.read()
+        audio_content = audio_file.file.read()
         filename = f"audio.wav"  # Or any desired filename
         with open(filename, "wb") as file:
             file.write(audio_content)
-        transcribed_audio = await transcribe_audio(filename, options)
+        transcribed_audio = transcribe_audio(filename, options)
         os.remove(filename)
         return transcribed_audio
     except Exception as e:
